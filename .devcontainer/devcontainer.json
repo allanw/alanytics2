@@ -1,3 +1,4 @@
 {
     "name": "Alanytics2",
+    "dockerFile": "Dockerfile",
 }
