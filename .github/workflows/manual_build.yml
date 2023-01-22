@@ -15,11 +15,24 @@ jobs:
   manual_build:
     name:  manual_build
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-          
-      - name: Run your Meltano on schedule
-        uses: devcontainers/ci@v0.2
+      - name: Check out
+        uses: actions/checkout@master
         with:
-          push: never
-          runCmd: 'make foobar'
+          python-version: '3.9'
+
+      - name: python basics
+        # should prob shift to requirements.txt, but setting like this for now
+        run: |
+          python3 -m pip install --user pipx
+          python3 -m pipx ensurepath
+          pipx install meltano==2.10.0
+      - name: meltano install
+        # explicitly not running all installs, since testing the visuals is out of scope
+        run: |
+          meltano --log-level=debug install extractors
+          meltano --log-level=debug install loaders
+        
+      - name: build it
+        run: make foobar
