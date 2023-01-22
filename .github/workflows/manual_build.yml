@@ -16,9 +16,7 @@ jobs:
     name:  manual_build
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@master
-      with:
-        python-version: '3.9'
+      - uses: actions/checkout@master
           
       - name: Run your Meltano on schedule
         uses: devcontainers/ci@v0.2
