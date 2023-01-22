@@ -2,7 +2,10 @@
     "name": "Alanytics2",
     "dockerFile": "Dockerfile",
     "features": {
-      //see https://github.com/devcontainers/features/tree/main/src/docker-in-docker for details on below
-      "ghcr.io/devcontainers/features/docker-in-docker:1":{}
-    },
+            "docker-in-docker": {
+                "version": "latest",
+                "moby": true,
+                "dockerDashComposeVersion": "v1"
+            }
+        }
 }
