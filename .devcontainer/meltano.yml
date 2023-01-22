@@ -1,0 +1,24 @@
+version: 1
+default_environment: dev
+project_id: d5c929c4-d888-4298-862c-162f2dd5af0b
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      files:
+      - entity: raw_customers
+        path: data/customers.csv
+        keys: [id]
+  loaders:
+  - name: target-duckdb
+    variant: jwills
+    pip_url: target-duckdb~=0.4
+    config:
+      filepath: output/my.duckdb
+      default_target_schema: raw
