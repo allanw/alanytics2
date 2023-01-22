@@ -6,5 +6,7 @@ COPY . .
 
 RUN pip install duckdb
 
+ENV MELTANO_SYS_DIR_ROOT="/home/.meltano"
+
 RUN meltano install extractors
 RUN meltano install loaders
