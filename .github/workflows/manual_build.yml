@@ -22,5 +22,4 @@ jobs:
         uses: devcontainers/ci@v0.2
         with:
           push: never
-          runCmd: meltano run tap-csv target-duckdb
-        
+          runCmd: 'make foobar'
