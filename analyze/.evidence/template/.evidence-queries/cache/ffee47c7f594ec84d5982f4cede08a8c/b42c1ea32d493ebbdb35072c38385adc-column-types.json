@@ -1,0 +1,1 @@
+[{"name":"email","evidenceType":"string","typeFidelity":"inferred"},{"name":"first_name","evidenceType":"string","typeFidelity":"inferred"},{"name":"id","evidenceType":"string","typeFidelity":"inferred"},{"name":"ip_address","evidenceType":"string","typeFidelity":"inferred"},{"name":"last_name","evidenceType":"string","typeFidelity":"inferred"}]
