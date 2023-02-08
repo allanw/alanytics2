@@ -130,8 +130,12 @@
 	import LoadingIndicator from "@evidence-dev/components/ui/LoadingIndicator.svelte";
 	
 	import QueryStatus from "@evidence-dev/components/QueryStatus.svelte";
+    import { showQueries } from '@evidence-dev/components/ui/stores'
+    import { pageHasQueries } from '@evidence-dev/components/ui/stores';
 	
 	export let open = false  
+
+	showQueries.update(value => true);
 </script>
 
 <svelte:head>
@@ -142,26 +146,19 @@
 	<LoadingIndicator/>
 {/if}
 
-<div class="grid">
-	{#if $page.path !== '/settings'}
+<div>
+
+	<main in:blur|local>
+	  {#if $page.path !== '/settings'}
 		<div class="header">
-		<Logo organization="Run With Al" />
 		<Nav
 			sections={[
-				{ href: '/', label: 'Home' },
-				{ href: '/test', label: 'Test' },
+				{ href: '/', label: 'home' },
+				{ href: '/test', label: 'now' },
 			]}
 		/>
 		</div>
-		<div class="header-button" class:open>
-			<Hamburger bind:open/>
-		</div>
-	{/if}
-	<main in:blur|local>
-	
-	{#if $page.path.split('/').slice(1).toString().length > 0}
-		<BreadCrumbs {menu} {folderList} />
-	{/if}
+	  {/if}
 
 	  <div class=content class:settings-content={$page.path === '/settings'}>
 		<article class:settings-article={$page.path === '/settings'}>
@@ -197,14 +194,8 @@ main {
 
 div.content {
 	margin: auto;
-	max-width:100ch;
+	max-width:636px;
 	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: 4fr minmax(0,1fr);
-	gap: 0 5ch;
-  	grid-template-areas:
-    	'article toc';
-    justify-items: left;
 }
 
 article {
@@ -212,7 +203,7 @@ article {
 	min-width: 0;
 	width: 100%;
 	grid-area: article;
-	padding: 0 1.5em 0 1.5em;
+	padding: 1em 1.5em 0 1.5em;
 	box-sizing: border-box;
 	user-select: text;
 	-moz-user-select: text;
@@ -252,11 +243,6 @@ aside.toc {
 }
 
 @media (max-width: 1440px) {
-	div.content {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			'article';
-	}
 
 	article {
 		max-width: 70ch;
@@ -301,16 +287,6 @@ aside.toc {
 		background-color: transparent;
 		backdrop-filter: none;
 	}
-	.grid {
-		display: grid;
-		grid-template-areas:
-			'header'
-			'main';
-		grid-template-columns: 1fr;
-		grid-template-rows: var(--header-height) 1fr;
-		margin: 0 auto;
-		isolation: isolate;
-	}
 }
 
 @media print {
@@ -332,7 +308,18 @@ aside.toc {
 }
 
 div.header {
-	padding: 0.5em 1.5em 0 1.5em;
+	background-color: #276890;
+	padding: 0.6rem 1rem 0.5rem 1rem;
+	font-size: 16px;
+}
+
+:global(div.header div.nav-container a) {
+	color: white !important;
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+:global(div.header div.nav-container a::after) {
+	background: none !important;
 }
 
 </style>
