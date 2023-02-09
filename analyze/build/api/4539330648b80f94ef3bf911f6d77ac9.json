@@ -1,1 +1,0 @@
-{"data":{"evidencemeta":{"queries":[{"id":"foo","compiledQueryString":"select\n  count(*) as mycount\nfrom raw.raw_customers","inputQueryString":"select\n  count(*) as mycount\nfrom raw.raw_customers","compiled":false,"status":"done","columnTypes":[{"name":"mycount","evidenceType":"number","typeFidelity":"inferred"}]}]},"foo":[{"mycount":29}]}}
