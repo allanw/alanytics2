@@ -1,5 +1,5 @@
 foobar:
-	meltano invoke tap-duckdb
+	meltano invoke tap-oura
 
 evidence-build:
 	cd analyze && npm update
