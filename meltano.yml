@@ -15,6 +15,14 @@ plugins:
       - entity: raw_customers
         path: data/customers.csv
         keys: [id]
+  - name: tap-oura
+    pip_url: git+https://github.com/allanw/tap-oura.git
+    executable: tap-oura
+    settings:
+    - name: access_token
+      env: TAP_OURA_ACCESS_TOKEN
+    - name: start_date
+      env: TAP_OURA_START_DATE
   loaders:
   - name: target-duckdb
     variant: jwills
