@@ -155,6 +155,7 @@
 			sections={[
 				{ href: '/', label: 'home' },
 				{ href: '/test', label: 'now' },
+				{ href: '/test', label: 'about' },
 			]}
 		/>
 		</div>
@@ -311,15 +312,22 @@ div.header {
 	background-color: #276890;
 	padding: 0.6rem 1rem 0.5rem 1rem;
 	font-size: 16px;
+	line-height: 1.4;
 }
 
 :global(div.header div.nav-container a) {
 	color: white !important;
 	font-family: "Helvetica Neue", sans-serif;
+	letter-spacing: 0em !important;
+	padding: 0 0.4em 0 0 !important;
 }
 
 :global(div.header div.nav-container a::after) {
 	background: none !important;
+}
+
+:global(div.header div.nav-container a:nth-child(n+2)::before){
+    content: "/ ";
 }
 
 </style>
