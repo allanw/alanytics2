@@ -135,7 +135,9 @@
 	
 	export let open = false  
 
-	showQueries.update(value => true);
+	function toggleQueries() {
+		showQueries.update(value => !value)
+	}
 </script>
 
 <svelte:head>
@@ -162,6 +164,15 @@
 	  {/if}
 
 	  <div class=content class:settings-content={$page.path === '/settings'}>
+	    {#if $pageHasQueries}
+            <span transition:blur|local>
+                {#if $showQueries}
+                <button type="button" class="dev-controls hide" on:click={toggleQueries}>Hide Queries</button>
+                {:else}
+                <button type="button" class="dev-controls show" on:click={toggleQueries}>Show Queries</button>
+                {/if}
+            </span>
+        {/if}
 		<article class:settings-article={$page.path === '/settings'}>
 			<slot/>
 			<p>&nbsp;</p>
@@ -328,6 +339,45 @@ div.header {
 
 :global(div.header div.nav-container a:nth-child(n+2)::before){
     content: "/ ";
+}
+
+button.dev-controls {
+	float: right;
+	background-color: transparent;
+	text-align: center;
+	margin: 0.5em 0 0 1.5em;
+	padding: 0.25em 1em 0.25em 1em;
+	border: 1px solid var(--grey-300);
+	border-radius: 3px;
+	font-size: 0.8em;
+	color: var(--grey-900);
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-webkit-font-smoothing: antialiased;
+	width: 9em;
+	transition:box-shadow 350ms;
+}
+
+button.dev-controls:hover {
+	box-shadow: 0 5px 5px 2px var(--grey-100);
+	transition:all 350ms;
+}
+
+button.dev-controls {
+	background: -webkit-linear-gradient(315deg, var(--blue-600) 0%, var(--green-600) 75%);
+	text-decoration: none;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bold;
+	}
+
+	@media (max-width: 600px) {
+	button.dev-controls {
+		display: none;
+	}
 }
 
 </style>
