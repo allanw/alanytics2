@@ -1,6 +1,4 @@
 foobar:
-	meltano run tap-csv target-duckdb
-	meltano invoke tap-oura
 	meltano run tap-oura target-duckdb
 	git config user.name "Automated"
 	git config user.email "actions@users.noreply.github.com"
