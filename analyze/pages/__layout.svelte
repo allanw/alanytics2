@@ -345,7 +345,7 @@ button.dev-controls {
 	float: right;
 	background-color: transparent;
 	text-align: center;
-	margin: 0.5em 0 0 1.5em;
+	margin: 0.5em 0.5em 0 1.5em;
 	padding: 0.25em 1em 0.25em 1em;
 	border: 1px solid var(--grey-300);
 	border-radius: 3px;
@@ -366,18 +366,12 @@ button.dev-controls:hover {
 }
 
 button.dev-controls {
-	background: -webkit-linear-gradient(315deg, var(--blue-600) 0%, var(--green-600) 75%);
+	background: #276890;
 	text-decoration: none;
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: bold;
-	}
-
-	@media (max-width: 600px) {
-	button.dev-controls {
-		display: none;
-	}
 }
 
 </style>
