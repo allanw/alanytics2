@@ -1,6 +1,4 @@
 foobar:
-	export TAP_OURA_ACCESS_TOKEN=${{ secrets.TAP_OURA_ACCESS_TOKEN }}
-	export TAP_OURA_START_DATE=${{ secrets.TAP_OURA_START_DATE }}
 	meltano run tap-csv target-duckdb
 	meltano run tap-oura target-duckdb
 	git config user.name "Automated"
