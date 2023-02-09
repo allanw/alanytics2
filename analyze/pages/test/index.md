@@ -2,11 +2,11 @@ This is a test.
 
 [test2](test/test2)
 
-```foo
+```sleeps
 select
-  count(*) as mycount
-from raw.raw_customers
+  *
+from raw.sleeps
 ``` 
 
 Sometimes you need something *bigger*: 
-<BigValue data={foo} value=mycount />
+<BigValue data={sleeps} value=mycount />
