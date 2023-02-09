@@ -36,7 +36,9 @@ jobs:
         
       - name: build it
         run: make foobar
-        
+        env:
+          TAP_OURA_ACCESS_TOKEN: ${{ secrets.TAP_OURA_ACCESS_TOKEN }}
+          
       - name: build evidence
         run: make evidence-build
         
