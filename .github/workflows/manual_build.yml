@@ -10,6 +10,8 @@ on:
         default: 'testing github actions'
         # Input has to be provided for the workflow to run
         required: true
+  schedule:
+    - cron: "0 22 * * *"
 
 jobs:
   manual_build:
