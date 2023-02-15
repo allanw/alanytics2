@@ -1,4 +1,6 @@
 foobar:
+	echo hello
+	python -c "import duckdb; print(duckdb.__version__)"
 	git config user.name "Automated"
 	git config user.email "actions@users.noreply.github.com"
 	git rm -f output/my.duckdb
