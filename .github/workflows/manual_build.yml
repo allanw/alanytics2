@@ -35,7 +35,7 @@ jobs:
         run: |
           meltano --log-level=debug install extractors
           meltano --log-level=debug install loaders
-          pipx install duckdb==0.6.1
+          pip install duckdb==0.6.1
         
       - name: build it
         run: make foobar
