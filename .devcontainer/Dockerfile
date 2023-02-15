@@ -4,7 +4,7 @@ WORKDIR /home/
 
 COPY . .
 
-RUN pip install duckdb
+RUN pip install duckdb==0.6.2
 
 ENV PATH="$PATH:/venv/bin/meltano"
 
