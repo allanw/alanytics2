@@ -5,18 +5,18 @@ This is a test.
 ```sleeps
 select
   bedtime_start as start,
-  total/60/60 as total
+  total_sleep_duration/60/60 as total
 from raw.sleeps
 where start > '2023-01-01'
 ``` 
 
 Sometimes you need something *bigger*: 
-<BigValue data={sleeps} value=total />
+<BigValue data={sleeps} value=total_sleep_duration />
 
 <BarChart
     title='Total sleep'
     subtitle='Hours'
     data={sleeps}
     x=start
-    y=total
+    y=total_sleep_duration
 />
