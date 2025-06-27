@@ -11,12 +11,12 @@ where start > '2023-01-01'
 ``` 
 
 Sometimes you need something *bigger*: 
-<BigValue data={sleeps} value=total_sleep_duration />
+<BigValue data={sleeps} value=total />
 
 <BarChart
     title='Total sleep'
     subtitle='Hours'
     data={sleeps}
     x=start
-    y=total_sleep_duration
+    y=total
 />
