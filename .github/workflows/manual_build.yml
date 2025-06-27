@@ -11,7 +11,7 @@ on:
         # Input has to be provided for the workflow to run
         required: true
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "30 23 * * *"
 
 jobs:
   manual_build:
